@@ -1,82 +1,28 @@
-🔐 AES Text File Encryptor
+Markdown# TH - Text File Encryptor/Decryptor (v1.0)
 
-A simple and secure text file encryption tool built with Python, using AES-256 symmetric encryption via the cryptography library.
-It allows you to encrypt and decrypt .txt files from the command line using a shared secret password.
+A simple, console-based tool to **encrypt** and **decrypt** text files (`.txt`) using strong **AES-256-GCM** authentication encryption, with key derivation via **PBKDF2-HMAC-SHA256**.
 
-This project is intended for educational purposes and basic private communication.
+Perfect for protecting sensitive text files locally on Windows.
 
-🚀 Features
+## Features
 
-AES-256 encryption (industry-standard)
+- Strong encryption: AES-256-GCM (authenticated encryption)
+- Secure key derivation: PBKDF2 with 200,000 iterations and random salt
+- Interactive mode with graphical file picker (via Tkinter)
+- Command-line mode for scripting/automation
+- Optional saved master password (stored in plain text in a local `credenciales.json` file – **use only on trusted machines**)
+- Automatic copy of the output file to the Desktop
+- Colored console output (cross-compatible with Windows thanks to Colorama fallback)
+- Supports both encryption (`.txt` → `.enc`) and decryption (`.enc` → `.dec.txt`)
 
-Password-based key generation (SHA-256)
+## Requirements
 
-Encrypt and decrypt text files
+- Python 3.7+
+- Required packages:
+  - `cryptography`
+  - `colorama` (optional – for colored output; falls back gracefully if missing)
 
-Works from the command line
+Install dependencies with:
 
-Simple, clean, and easy to understand
-
-Same program for sender and receiver
-
-🛠 Requirements
-
-Python 3.8 or higher
-
-cryptography library
-
-Install the dependency with:
-
-pip install cryptography
-
-📂 Usage
-
-Clone the repository or download the script.
-
-Place the text file you want to encrypt in the same directory.
-
-Run the program:
-
-python encryptor.py
-
-
-Choose an option:
-
-1 → Encrypt file
-
-2 → Decrypt file
-
-Enter:
-
-Input file name
-
-Output file name
-
-Secret password
-
-⚠️ Important:
-The same password must be used to decrypt the file.
-If the password is incorrect, the file cannot be recovered.
-
-🔐 Security Notes
-
-Uses AES-256, a secure and widely used encryption standard.
-
-The password is never stored.
-
-Encrypted files are unreadable without the correct password.
-
-Do not share the password in the same channel as the encrypted file.
-
-📘 Example Use Case
-
-Send encrypted messages through email or messaging apps.
-
-Protect sensitive notes or personal data.
-
-Learn the basics of real cryptography in Python.
-
-⚠️ Disclaimer
-
-This project is for educational purposes.
-While it uses strong encryption, it is not intended to replace professional security tools.
+```bash
+pip install cryptography colorama
